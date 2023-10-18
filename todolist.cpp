@@ -39,9 +39,13 @@ class Todo{
             cout<<"Enter New Task:  ";
             cin.ignore();//without this piece of code getline() in the next line gets ignored hence you can't enter any value
             getline(cin,newTask);
+            cin.clear();
+            fflush(stdin);
             toDoList.push_back(newTask);
             cout<<endl<<"To add new task enter 0:      ";
             cin>>s;
+             cin.clear();
+            fflush(stdin);
             }while(s==0);
             return;
         };
@@ -51,6 +55,8 @@ class Todo{
             cout<<"Delete Task"<<endl;
             cout<<"Enter task number:   ";
             cin>>delTask;
+             cin.clear();
+            fflush(stdin);
             toDoList.erase(toDoList.begin()+delTask-1);
             return;
         };
@@ -80,10 +86,14 @@ class Todo{
             cout<<"\nUpdate task\n";
             cout<<"Enter task number:       ";
             cin>>update;
+             cin.clear();
+            fflush(stdin);
             cout<<"Task"<<update<<":  "<<toDoList[update-1]<<endl;
             cout<<"Enter updated task:      ";
             cin.ignore();
             getline(cin,updatedTask);
+             cin.clear();
+            fflush(stdin);
             toDoList[update-1]=updatedTask;
 
 
@@ -102,6 +112,8 @@ class Todo{
             cout<<"\nMark as Completed\n";
             cout<<"\nEnter task number:   ";
             cin>>comp;
+             cin.clear();
+            fflush(stdin);
             toDoList.erase(toDoList.begin()+comp-1);//toDoList.begin()-->refers to the address of first element in toDoList vector -- which is basically means toDoList[0].
             completed.push_back(toDoList[comp-1]);
             cout<<"Completed tasks\n";
@@ -122,6 +134,8 @@ int main(){
     obj.displayMenu();
     cout<<endl<<"Enter You choice:      ";
     cin>>obj.option;
+    cin.clear();
+    fflush(stdin);
     switch(obj.option){
         case 1:
             obj.displayTask();
@@ -147,6 +161,8 @@ int main(){
     
     cout<<"\nBack:        0\nExit:         9\n";
     cin>>r;
+    cin.clear();
+    fflush(stdin);
 
     }while(r==0);
 
